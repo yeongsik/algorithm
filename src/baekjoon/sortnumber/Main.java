@@ -1,6 +1,5 @@
 package baekjoon.sortnumber;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,32 +10,32 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int first = scanner.nextInt();
-        List<Integer> intArray = new ArrayList<>();
-        while (intArray.size() < first) {
-            intArray.add(scanner.nextInt());
+
+        int[] array = new int[scanner.nextInt()];
+
+        for ( int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
         }
-        Tool tool = new Tool();
-        tool.sort(intArray);
-        System.out.println("intArray = " + intArray.toString());
+        selectSort(array);
+
+        for ( int value : array ) {
+            System.out.println(value);
+        }
     }
-}
-class Tool {
-    public void sort(List<Integer> intArray) {
-        for (int i = 0; i < intArray.size()-1; i++) {
-            int a = intArray.get(i);
-            for ( int j = 1; j < intArray.size()-1; j++) {
-                int b = intArray.get(j);
-                if(a > b) {
-                    intArray.remove(j);
-                    intArray.remove(i);
-                    intArray.add(i , b);
-                    intArray.add(j , a);
+    private static int[] selectSort(int[] intArray) {
+        for(int i = 0 ; i < intArray.length-1; i ++) {
+            for ( int j = i+1 ; j < intArray.length; j ++) {
+                // i 와 나머지 j 들이 비교
+                // i 가 큰 경우 j 와 i 의 값 위치 변경
+                if(intArray[i] > intArray[j] ) {
+                    int temp = intArray[j];
+                    intArray[j] = intArray[i];
+                    intArray[i] = temp;
                 }
             }
         }
-        for (int number : intArray) {
-            System.out.println(number);
-        }
+        return intArray;
     }
+
 }
+
