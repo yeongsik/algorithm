@@ -5,7 +5,7 @@ import java.util.Map;
 /*
     https://school.programmers.co.kr/learn/courses/30/lessons/42578
  */
-public class Pro20221101 {
+public class Pro20221102 {
 
     public static void main(String[] args) {
         String[][] test =new String[][]{{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}};
@@ -14,7 +14,7 @@ public class Pro20221101 {
     }
 
     public int solution(String[][] clothes) {
-        int answer = 1;
+        int answer = 0;
 
         Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < clothes.length; i++) {
@@ -24,7 +24,6 @@ public class Pro20221101 {
                 map.put(clothes[i][1], 1);
             }
         }
-
         for (String key : map.keySet()) {
             int size = map.get(key);
             answer = answer * (size + 1);
