@@ -5,19 +5,19 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Objects;
 
-class Node {
-    int data;
-    Node left, right;
-
-    public Node(int data) {
-        this.data = data;
-        left = null;
-        right = null;
-    }
-}
-
 
 public class Section7_5 {
+
+    static class Node {
+        int data;
+        Node left, right;
+
+        public Node(int data) {
+            this.data = data;
+            left = null;
+            right = null;
+        }
+    }
     Node root;
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
