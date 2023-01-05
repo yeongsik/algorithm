@@ -24,9 +24,11 @@ public class Section2_9 {
 
     static int solution(int[][] arr) {
         int max = 0;
+        int sumA = 0;
+        int sumB = 0;
         for (int i = 0; i < arr.length; i++) {
-            int sumA = 0;
-            int sumB = 0;
+            sumA = 0;
+            sumB = 0;
             for (int j = 0; j < arr.length; j++) {
                 sumA += arr[i][j];
                 sumB += arr[j][i];
@@ -34,11 +36,13 @@ public class Section2_9 {
             max = Math.max(max, sumA);
             max = Math.max(max, sumB);
         }
-        int sumC = 0;
+        sumA = sumB = 0;
         for (int i = 0; i < arr.length; i++) {
-            sumC += arr[i][i];
+            sumA += arr[i][i];
+            sumB += arr[i][arr.length - 1 - i];
         }
-        max = Math.max(max, sumC);
+        max = Math.max(max, sumA);
+        max = Math.max(max, sumB);
 
         return max;
     }
